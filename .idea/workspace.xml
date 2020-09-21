@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67d98c88-57ea-4028-a426-cd8b1070a7c6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bayes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logRegres.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svmMLiA.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decisionTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/decisionTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/treePlotlib.py" beforeDir="false" afterPath="$PROJECT_DIR$/treePlotlib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logRegres.py" beforeDir="false" afterPath="$PROJECT_DIR$/logRegres.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/svmMLiA.py" beforeDir="false" afterPath="$PROJECT_DIR$/svmMLiA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager" selected="Python.treePlotlib">
     <configuration name="decisionTree" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -128,12 +125,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="859" y="402" width="613" height="275" key="#Vim_Emulation" timestamp="1598325034951">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="1145" y="536" width="613" height="275" key="#Vim_Emulation" timestamp="1599473078383">
+      <screen x="0" y="0" width="2560" height="1440" />
     </state>
     <state x="859" y="402" width="613" height="275" key="#Vim_Emulation/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1598325034951" />
+    <state x="1145" y="536" key="#Vim_Emulation/-1920.0.1920.1080/0.0.2560.1440@0.0.2560.1440" timestamp="1599473078383" />
     <state x="626" y="317" key="FileChooserDialogImpl" timestamp="1598259692545">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -158,10 +157,10 @@
     </state>
     <state width="1897" height="187" key="GridCell.Tab.0.right/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1598325183499" />
     <state width="1268" height="266" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.2560.1440@0.0.1920.1080" timestamp="1598266810526" />
-    <state x="463" y="276" key="SettingsEditor" timestamp="1598439508220">
-      <screen x="0" y="0" width="2560" height="1440" />
+    <state x="347" y="207" key="SettingsEditor" timestamp="1598755208973">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="347" y="207" key="SettingsEditor/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1598259884573" />
+    <state x="347" y="207" key="SettingsEditor/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1598755208973" />
     <state x="463" y="276" key="SettingsEditor/-1920.0.1920.1080/0.0.2560.1440@0.0.2560.1440" timestamp="1598439508220" />
     <state x="2383" y="276" key="SettingsEditor/0.0.1920.1080/1920.0.2560.1440@0.0.1920.1080" timestamp="1598266723949" />
   </component>
