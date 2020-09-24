@@ -119,4 +119,11 @@ def updateEk(oS, k):
     Ek = calcEk(oS, k)
     oS.eCache[k] = [1, Ek]
 
+def innerL(i, oS):
+    Ei = calcEk(oS, i)
+    if ((oS.labelMat[i]*Ei < -oS.tol) and (oS.alphas[i] < oS.C)) or ((oS.labelMat[i]*Ei > oS.tol) and oS.alphas[i] > 0):
+        j, Ej = selectJ(i, oS, Ei)
+        alphaIold = oS.alphas[i].copy()
+        alphaJold = oS.alphas[j].copy()
+
 
