@@ -53,7 +53,7 @@ def kMeans(dataSet, k, distMeas=distEclud, createCent=randCent):
     return centroids, clusterAssment
 
 # 二分K-均值聚类算法
-def bikmeans(dataSet, k, distMeans=distEclud):
+def biKmeans(dataSet, k, distMeans=distEclud):
     m = shape(dataSet)[0]
     clusterAssment = mat(zeros((m, 2)))
     # mean every column, axis = 0 is meaning every column, axis = 1 is meaning every row.
@@ -95,4 +95,33 @@ def distSLC(vecA, vecB):
     b = cos(vecA[0, 1] * pi/180) * cos(vecB[0, 1]*pi/180) * cos(pi * (vecB[0, 0] - vecA[0, 0]) / 180)
     return arccos(a+b)*6371.0
 
-import
+import matplotlib
+import matplotlib.pyplot as plt
+
+def clusterClubs(numClust=5):
+    datList = []
+    for line in open("E:\\workfor2020\\selfWork\\ML\\action\\machinelearninginaction\\Ch10\\places.txt").readlines():
+        lineArr = line.split("\t")
+        datList.append([float(lineArr[4]), float(lineArr[3])])
+    datMat = mat(datList)
+    print("Get data:\n", datMat)
+    myCentroids, clustAssing = biKmeans(datMat, numClust, distMeans=distSLC)
+    fig = plt.figure()
+    rect = [0.1, 0.1, 0.8, 0.8]
+    scatterMarkers = ["s", "o", "^", "8", "p", "d", "v", "h", ">", "<"]
+    axprops = dict(xticks=[], yticks=[])
+    ax0 = fig.add_axes(rect, label="ax0", **axprops)
+    imgP = plt.imread("E:\\workfor2020\\selfWork\\ML\\action\\machinelearninginaction\\Ch10\\Portland.png")
+    ax0.imshow(imgP)
+    ax1 = fig.add_axes(rect, label="ax1", frameon=False)
+    for i in range(numClust):
+        ptsInCurrCluster = datMat[nonzero(clustAssing[:, 0].A==i), :]
+        markerStyle = scatterMarkers[i % len(scatterMarkers)]
+        ax1.scatter(ptsInCurrCluster[:, 0].flatten().A[0], ptsInCurrCluster[:, 1].flatten().A[0], marker=markerStyle, s=90)
+        myCentroids[i] = myCentroids[i].A[0].tolist()
+    print("new Centroids is ", myCentroids)
+    b = array(myCentroids)[:, 1].flatten()
+    print("b is ", b)
+    ax1.scatter(array(myCentroids)[:, 0].flatten(),
+                array(myCentroids)[:, 1].flatten(), marker="+", s=300)
+    plt.show()
