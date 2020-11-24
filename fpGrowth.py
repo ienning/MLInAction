@@ -40,6 +40,7 @@ def createTree(dataSet, minSup=1):
                 localD[item] = headerTable[item][0]
         if len(localD) > 0:
             orderedItems = [v[0] for v in sorted(localD.items(), key = lambda p: p[1], reverse=True)]
+            #print("orderedItems is ", orderedItems, "\n")
             updateTree(orderedItems, retTree, headerTable, count)
     return retTree, headerTable
 
@@ -48,13 +49,13 @@ def updateTree(items, inTree, headerTable, count):
         inTree.children[items[0]].inc(count)
     else:
         inTree.children[items[0]] = treeNode(items[0], count, inTree)
-        if headerTable[items[0][1]] == None:
-            headerTable[0][1] == inTree.children[items[0]]
+        if headerTable[items[0]][1] == None:
+            headerTable[items[0]][1] = inTree.children[items[0]]
         else:
             updateHeader(headerTable[items[0]][1], inTree.children[items[0]])
-    if len(items > 1):
+    if len(items) > 1:
         updateTree(items[1::], inTree.children[items[0]], headerTable, count)
-
+# every element in headerTable have a treeNode, which can link next same key in tree
 def updateHeader(nodeToTest, targetNode):
     while (nodeToTest.nodeLink != None):
         nodeToTest = nodeToTest.nodeLink
@@ -74,3 +75,18 @@ def createInitSet(dataSet):
     for trans in dataSet:
         retDict[frozenset(trans)] = 1
     return retDict
+
+def ascendTree(leafNode, prefixPath):
+    if leafNode.parent != None:
+        prefixPath.append(leafNode.name)
+        ascendTree(leafNode.parent, prefixPath)
+
+def findPrefixPath(basePat, treeNode):
+    condPats = {}
+    while treeNode != None:
+        prefixPath = []
+        ascendTree(treeNode, prefixPath)
+        if len(prefixPath) > 1:
+            condPats[frozenset(prefixPath[1:])] = treeNode.count
+        treeNode = treeNode.nodeLink
+    return condPats
