@@ -1,5 +1,8 @@
 from numpy import *
 import copy
+import twitter
+from time import sleep
+import re
 
 class treeNode:
     def __init__(self, nameValue, numOccur, parentNode):
@@ -90,3 +93,32 @@ def findPrefixPath(basePat, treeNode):
             condPats[frozenset(prefixPath[1:])] = treeNode.count
         treeNode = treeNode.nodeLink
     return condPats
+
+def mineTree(inTree, headerTable, minSup, preFix, freqItemList):
+    bigL = [v[0] for v in sorted(headerTable.items(), key=lambda p: p[1])]
+
+    for basePat in bigL:
+        newFreqSet = preFix.copy()
+        newFreqSet.add(basePat)
+        freqItemList.append(newFreqSet)
+        condPattBases = findPrefixPath(basePat, headerTable[basePat][1])
+        myCondTree, myHead = createTree(condPattBases, minSup)
+        if myHead != None:
+            mineTree(myCondTree, myHead, minSup, newFreqSet, freqItemList)
+
+def getLotsOfTweets(searchStr):
+    CONSUMER_KEY = "get when you create an app"
+    CONSUMER_SECRET = "get"
+    ACCESS_TOKEN_KEY = ""
+    ACCESS_TOKEN_SECRET = ""
+    api = twitter.api(consumer_key=CONSUMER_KEY,
+                      consumer_secret=CONSUMER_SECRET,
+                      access_token_key=ACCESS_TOKEN_KEY,
+                      access_token_secret=ACCESS_TOKEN_SECRET)
+    resultPages = []
+    for i in range(1, 15):
+        print("fetching page %d" % i)
+        searchResults = api.GetSearch(searchStr, per_page=100, page=i)
+        resultPages.append(searchResults)
+        sleep(6)
+    return resultPages
